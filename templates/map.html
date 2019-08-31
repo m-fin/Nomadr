@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %} Test {% endblock %}
+
+{% block main %}
+<div id="map_div">
+    <iframe id="map_iframe"src="{{ url_for('show_map') }}" frameborder="0"></iframe>
+</div>
+{% endblock %}
