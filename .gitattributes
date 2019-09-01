@@ -1,2 +1,2 @@
 * linguist-vendored
-*.db linguist-vendored=false
+*.py linguist-vendored=false
