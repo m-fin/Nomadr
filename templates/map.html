@@ -3,6 +3,58 @@
 {% block title %} Test {% endblock %}
 
 {% block main %}
+<script>
+
+// navigator.geolocation.getCurrentPosition(function(location) {
+//     console.log(location.coords.latitude);
+//     console.log(location.coords.longitude);
+//     console.log(location.coords.accuracy);
+//   });
+
+// // some movie data
+//     var userLocation = {
+//     'latitude': location.coords.latitude,
+//     'longitude': location.coords.longitude,
+//     'accuracy': location.coords.accuracy
+//     }
+
+// some movie data
+var movies = {
+    'title': "MOVIE COCK",
+    'release_date': "COCK O CLOCK"
+    }
+
+$.ajax({
+url: Flask.url_for('my_function'),
+type: 'POST',
+data: JSON.stringify(userLocation),   // converts js value to JSON string
+})
+.done(function(result){     // on success get the return object from server
+    console.log(result)     // do whatever with it. In this case see it in console
+}
+// // navigator.geolocation.getCurrentPosition(function(location) {
+// //     console.log(location.coords.latitude);
+// //     console.log(location.coords.longitude);
+// //     console.log(location.coords.accuracy);
+// //   });
+// navigator.geolocation.getCurrentPosition(function(location) {
+//     var userLocation = {
+//     'latitude': location.coords.latitude,
+//     'longitude': location.coords.longitude,
+//     'accuracy': location.coords.accuracy
+//     }
+
+// $.ajax({
+// url: Flask.url_for('my_function'),
+// type: 'POST',
+// data: JSON.stringify(movies),   // converts js value to JSON string
+// })
+
+// .done(function(result){     // on success get the return object from server
+//     console.log(result)     // do whatever with it. In this case see it in console
+// }
+// }
+</script>
 <div id="map_div">
     <iframe id="map_iframe"src="{{ url_for('show_map') }}" frameborder="0"></iframe>
 </div>

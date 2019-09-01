@@ -1,6 +1,5 @@
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, send_file
 
-
 import mysql.connector
 import sqlite3
 
@@ -10,7 +9,10 @@ import pandas
 import os
 import logging
 
-from helpers import apology
+import pygeoip
+
+
+from helpers import apology, makeMap
 
 # To set to debug mode:
 # export FLASK_DEBUG=1
@@ -109,9 +111,10 @@ def logout():
 def map():
     return render_template("map.html")
 
-@app.route('/maps/mapEmbed.html')
+@app.route('/mapEmbed')
 def show_map():
-    return send_file("mapEmbed.html")
+    makeMap()
+    return send_file('maps/mapEmbed.html')
 
 @app.route('/add')
 def add():

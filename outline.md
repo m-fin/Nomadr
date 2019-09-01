@@ -1,5 +1,28 @@
 CS50 Final Project
 
+# To do
+-Implement add.html form
+    (hidden)
+        -user id
+        -time
+    
+    -Latitude
+    -Longitude
+
+    -Name of place
+    -Description
+    -Review (out of 5)
+    -Type of place
+        -Sleeping
+        -Working
+        -Showering
+
+-Center map
+
+-Dynamic secret key
+
+-Store password as hash
+
 Nomadr
 -Log in, leave reviews of locations
 -Walmart parking lots
@@ -15,15 +38,3 @@ Add
 
 Log in
 Register
-
--Add
-    (hidden)
-        -user id
-        -time
-    -Name of place
-    -Description
-    -Review (out of 5)
-    -Type of place
-        -Sleeping
-        -Working
-        -Showering
