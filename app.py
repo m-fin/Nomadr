@@ -11,7 +11,6 @@ import logging
 
 import pygeoip
 
-
 from helpers import apology, makeMap
 
 # To set to debug mode:
@@ -44,13 +43,13 @@ def index():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
-
     session.clear()
 
-    username = request.form.get("username")
-    password = request.form.get("password")
-
     if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        # result = db.execute("INSERT INTO users (username, password) VALUES(?, ?)", (username, password))
         result = db.execute("INSERT INTO users (username, password) VALUES(?, ?)", (username, password))
 
         if not result:
@@ -116,6 +115,31 @@ def show_map():
     makeMap()
     return send_file('maps/mapEmbed.html')
 
-@app.route('/add')
+@app.route('/add', methods=["GET", "POST"])
 def add():
-    return render_template("add.html")
+    if request.method == "POST":
+        app.logger.info("999999900614783416801947839147213490789147314807823478923147894708941370814237809124387912347890140798431")
+        # connector.commit()
+
+        # dummy data
+        # lat = [(49.060329), (50.060329)]
+        # lon = [(-122.462227), (-123.462227)]
+        # title = [("test69696969"), ("cock")]
+        # description = [("test669699696"), ("and balls")]
+
+        latitude = request.form.get("inputLatitude")
+        longitude = request.form.get("inputLongitude")
+        title = request.form.get("inputTitle")
+        description = request.form.get("inputDescription")
+        locType = request.form.get("inputType")
+
+        db.execute('INSERT INTO locations (latitude, longitude, title, description, locType) VALUES (?, ?, ?, ?, ?)', (latitude, longitude, title, description, locType))
+        connector.commit()
+        
+        # for lt,ln,nm,ds in zip(latitude,longitude,title,description):
+        #     db.execute('INSERT INTO locations (latitude, longitude, title, description) VALUES (?, ?, ?, ?)', (lt, ln, nm, ds))
+        #     # db.execute('INSERT INTO locations (lat, long) VALUES (?, ?)', (lat, lon))
+
+        return redirect("/map")
+    else:
+        return render_template("add.html")
