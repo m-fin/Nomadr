@@ -59,7 +59,7 @@ def register():
 
         session["user_id"] = ("SELECT id FROM users WHERE username = ?", (username,))
 
-        return redirect("/")
+        return redirect("/map")
     else:
         return render_template("register.html")
 
@@ -92,7 +92,7 @@ def login():
         session["user_id"] = rows.fetchone()
 
         # Redirect user to home page
-        return redirect("/")
+        return redirect("/map")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:

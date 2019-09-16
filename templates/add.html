@@ -10,13 +10,27 @@
   <div class="form-row">
     <div class="form-group col-md-5">
       <label for="inputLatitude">Latitude</label>
-      <input type="text" class="form-control" name="inputLatitude" placeholder="Latitude">
+      <input type="text" class="form-control" name="inputLatitude" id="inputLatitude" placeholder="Latitude">
     </div>
     <div class="form-group col-md-5">
       <label for="inputLongitude">Longitude</label>
-      <input type="text" class="form-control" name="inputLongitude" placeholder="Longitude">
+      <input type="text" class="form-control" name="inputLongitude" id="inputLongitude" placeholder="Longitude">
     </div>
-    <button style="display: inline-block; margin-top: 28px; margin-bottom: 16px" type="button" class="btn btn-success">Set to location</button>
+    <button style="display: inline-block; margin-top: 28px; margin-bottom: 16px" type="button" class="btn btn-success" onclick="setToLocation()">Set to location</button>
+    <script>
+      function setToLocation(position) {
+        navigator.geolocation.getCurrentPosition(function(location) {
+          var lat = location.coords.latitude;
+          var long = location.coords.longitude;
+
+          document.getElementById('inputLatitude').value=lat;
+          document.getElementById('inputLongitude').value=long;
+        });
+      }
+    </script>
+  </div>
+  <div class="form-group">
+      <small>To convert an address to coordinates, <a href="https://www.latlong.net/" target="_blank">click here.</a></small>
   </div>
   <div class="form-group">
     <label for="inputTitle">Title</label>

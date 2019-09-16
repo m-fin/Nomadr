@@ -52,7 +52,7 @@ def makeMap():
         locType = entry[6]
 
         if locType == "Work":
-            color = "blue"
+            color = "red"
         elif locType == "Sleep":
             color = "purple"
         elif locType == "Shower":
@@ -63,7 +63,7 @@ def makeMap():
         icon = "bed"
 
         html = folium.Html("<b>" + title + "</b><br>" + description, script=True) # i'm assuming this bit runs fine
-        iframe = branca.element.IFrame(html=html, width=350, height=150)
+        iframe = branca.element.IFrame(html=html, width=320, height=120)
         popup = folium.Popup(iframe, parse_html=True)
         folium.Marker(location=[latitude,longitude], icon=folium.Icon(color=color, icon=icon), radius=6, popup=popup).add_to(map)
 

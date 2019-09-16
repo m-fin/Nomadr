@@ -21,6 +21,7 @@ CS50 Final Project
     https://www.strava.com/heatmap#16.00/-79.04348/35.90216/hot/all
 
 -add.html js button that fills in your current coordinates
+-If using other location, use https://www.latlong.net/
 
 -Add snazzy index.html
     -If logged in, redirect to /map
