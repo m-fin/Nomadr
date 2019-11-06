@@ -124,8 +124,8 @@ def add():
         # dummy data
         # lat = [(49.060329), (50.060329)]
         # lon = [(-122.462227), (-123.462227)]
-        # title = [("test69696969"), ("cock")]
-        # description = [("test669699696"), ("and balls")]
+        # title = [("title0"), ("title1")]
+        # description = [("desc0"), ("desc1")]
 
         latitude = request.form.get("inputLatitude")
         longitude = request.form.get("inputLongitude")
