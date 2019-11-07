@@ -118,8 +118,6 @@ def show_map():
 @app.route('/add', methods=["GET", "POST"])
 def add():
     if request.method == "POST":
-        app.logger.info("999999900614783416801947839147213490789147314807823478923147894708941370814237809124387912347890140798431")
-        # connector.commit()
 
         # dummy data
         # lat = [(49.060329), (50.060329)]
